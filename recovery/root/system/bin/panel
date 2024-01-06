@@ -1,0 +1,5 @@
+#!/sbin/bash
+if cat /proc/cmdline|grep -q "dsi_samsung_fhd_ea8076_f1mp_cmd_display"
+then echo Samsung-main
+else echo unknown
+fi
