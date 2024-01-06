@@ -24,16 +24,6 @@ lunch omni_cepheus-eng
 mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
 ```
 
-To test it:
-
-```
-fastboot boot out/target/product/cepheus/recovery.img
-```
-
-## Other Sources
-
-https://github.com/LasagnaTeam/TWRP_Kernel_Cepheus
-
 ## Thanks
 
 - Thanks to @bibarub for helping editing scripts from vayu TWRP mod
