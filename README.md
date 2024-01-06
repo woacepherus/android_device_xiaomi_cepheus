@@ -1,25 +1,5 @@
 # android_device_xiaomi_cepheus
-For building TWRP for Xiaomi Mi 9
-
-TWRP device tree for Xiaomi Mi 9
-
-## Features
-
-Works:
-
-- ADB
-- Decryption of /data
-- Screen brightness settings
-- Correct screenshot color
-- MTP
-- Flashing (opengapps, roms, images and so on)
-- Backup/Restore (Needs more testing)
-- USB OTG
-- Android Q Support
-
-TO-DO:
-
-- Vibration support
+Modded device tree for MI 9
 
 ## Compile
 
@@ -56,4 +36,4 @@ https://github.com/LasagnaTeam/TWRP_Kernel_Cepheus
 
 ## Thanks
 
-- Thanks to @PeterCxy for the commits and the base: https://github.com/PeterCxy/android_device_xiaomi_violet-twrp
+- Thanks to @bibarub for helping editing scripts from vayu TWRP mod
