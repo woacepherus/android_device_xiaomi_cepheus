@@ -18,7 +18,7 @@ sgdisk --resize-table 64 /dev/block/sda
 parted -s /dev/block/sda mkpart userdata ext4 11.7GB $userdataend"GB"
 parted -s /dev/block/sda mkpart win ntfs $userdataend"GB" $winend
 parted -s /dev/block/sda mkpart esp fat32 $winend $max"GB"
-parted -s /dev/block/sda set 34 esp on
+parted -s /dev/block/sda set 33 esp on
 sync
 formatdata
 formatwinesp
