@@ -7,7 +7,7 @@ mkfs.fat -F32 -s1 $esp -n ESPCEPHEUS
 mkfs.ntfs -f $win -L WINCEPHEUS
 }
 formatdata(){
-make_f2fs -f -g android /dev/block/sda31
+mke2fs -F -t ext4 /dev/block/sda31
 mke2fs -F -t ext4 /dev/block/by-name/metadata
 mke2fs -F -t ext4 /dev/block/by-name/cache
 }
@@ -27,15 +27,15 @@ rm /config/usb_gadget/g1/configs/b.1/f*
 exit
 fi
 blocksize=$(blockdev --getsize64 /dev/block/sda)
-if [[ $blocksize =~ ^121[0-9]{9}$ ]]; then max=121
-elif [[ $blocksize =~ ^254[0-9]{9}$ ]]; then max=255  #  ignore  
+if [[ $blocksize =~ ^574[0-9]{8}$ ]]; then max=57.5; aa=0.2 # this sucks
+elif [[ $blocksize =~ ^121[0-9]{9}$ ]]; then max=121
+elif [[ $blocksize =~ ^254[0-9]{9}$ ]]; then max=255  #  ignore # ok
 else echo "is this cepheus?"; exit 1
 fi
 for i in sdcard data; do umount -lf /$i 2> /dev/null; done
-dmsetup remove -f userdata 2> /dev/null
 for i in esp win cache metadata; do umount -lf /dev/block/by-name/$i 2> /dev/null; done
 if [ "$ignoreweirdness" != true ]; then
-weirdparts=$(find_ /dev/block -regextype posix-extended -type b -regex '.*/sda(3[5-9]|[4-9][0-9])$')
+weirdparts=$(find_ /dev/block -regextype posix-extended -type b -regex '.*/sda(3[4-9]|[4-9][0-9])$')
 if [ -n "$weirdparts" ]; then
 echo -n "in order to use this script, your partition table has to be restored to the stock variant. ALL DATA WILL BE LOST. continue (y/n)? "
 read yn
