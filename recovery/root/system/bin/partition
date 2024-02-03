@@ -13,7 +13,7 @@ read yn
 [[ $yn =~ ^[Yy].*$ ]] || { echo "rethink things carefully and, eventually, you'll come to a conclusion.";exit 1; }
 else userdataend=$(echo "scale=1;$max/2"|bc -l)
 fi
-winend=$(echo "scale=1;$max-$aa"|bc -l)
+winend=$(echo "scale=1;$max-$aa"|bc -l)"GB"
 removeparts
 sgdisk --resize-table 64 /dev/block/sda
 parted -s /dev/block/sda mkpart userdata ext4 11.7GB $userdataend"GB"
