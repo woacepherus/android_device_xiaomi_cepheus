@@ -27,7 +27,7 @@ rm /config/usb_gadget/g1/configs/b.1/f*
 exit
 fi
 blocksize=$(blockdev --getsize64 /dev/block/sda)
-if [[ $blocksize =~ ^574[0-9]{8}$ ]]; then max=57.5; aa=0.2 # this sucks
+if [[ $blocksize =~ ^574[0-9]{8}$ ]]; then max=57.5; aa=0.6 # this sucks
 elif [[ $blocksize =~ ^121[0-9]{9}$ ]]; then max=121
 elif [[ $blocksize =~ ^254[0-9]{9}$ ]]; then max=255  #  ignore # ok
 else echo "is this cepheus?"; exit 1
